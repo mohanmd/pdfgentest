@@ -15,16 +15,16 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($reports as $report)
+                @foreach ($reports as $key => $report)
                 <tr>
-                    <th scope="row">{{ $report->id }}</th>
+                    <th scope="row">{{ $key +1}}</th>
                     <td>{{ $report->name }}</td>
                     <td>{{ $report->email }}</td>
                     <td>{{ $report->contact }}</td>
                     <td>{{ $report->message }}</td>
                     <td>
-                        <a href="{{ route('export') }}" class="btn btn-warning">View</a>
-                        <a href="{{ route('delete') }}" class="btn btn-danger">Delete</a>
+                        <a href="{{ route('export') }}" class="btn btn-warning">Export</a>
+                        <a href="{{ route('delete',['id'=>$report->id]) }}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 @endforeach

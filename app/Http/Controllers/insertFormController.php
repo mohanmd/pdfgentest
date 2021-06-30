@@ -28,8 +28,5 @@ class insertFormController extends Controller
         return view('/home');
      }
 
-    public function getList(){
-        $reports = DB::table('reports')->get();
-        return view()-> with ('user.list', ['reports'=>$reports]);
-    }
+
 }

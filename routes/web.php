@@ -24,4 +24,9 @@ Route::post('form', [App\Http\Controllers\insertFormController::class, 'insert']
 
 Route::get('/view', [App\Http\Controllers\HomeController::class, 'view1'])->name('viewreport');
 Route::get('/export', [App\Http\Controllers\HomeController::class, 'export'])->name('export');
-Route::get('/delete', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
+Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
+
+
+// pdf
+
+Route::get('/pdf', [App\Http\Controllers\PDFController::class, 'index'])->name('pdf'); 

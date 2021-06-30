@@ -31,8 +31,10 @@ class HomeController extends Controller
     public function export(){
         // return view('user.list');
     }
-    public function delete(){
+    public function delete($id){
         // return view('user.list');
+        DB::table('reports')->delete($id);
+        return $this->view1();
     }
     public function view1(){
         $reports = DB::table('reports')->get();
