@@ -28,6 +28,8 @@
                 <button class="btn btn-info" >Send a Enquiry</button>
             </div>
         </form>
+
+        <a href="{{ route('viewreport') }}" class="btn btn-success">View Reports</a>
     </div>
 </div>
 @endsection

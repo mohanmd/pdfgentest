@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class insertFormController extends Controller
 {
@@ -10,6 +13,23 @@ class insertFormController extends Controller
     {
            echo "<pre>";
            print_r($request->all());
-        //return view('form');
+        return view('user.list');
+    }
+
+    public function insert(Request $request) {
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $contact = $request->input('contact');
+        $message = $request->input('message');
+        $data = ['name'=>$name, 'email'=>$email, 'contact'=>$contact, 'message'=>$message];
+        // DB::insert('insert into reports (name,email) values',($name, $email));
+        DB::table('reports')->insert($data); // Query Builder approach
+        // getList();
+        return view('/home');
+     }
+
+    public function getList(){
+        $reports = DB::table('reports')->get();
+        return view()-> with ('user.list', ['reports'=>$reports]);
     }
 }

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -25,4 +28,18 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function export(){
+        // return view('user.list');
+    }
+    public function delete(){
+        // return view('user.list');
+    }
+    public function view1(){
+        $reports = DB::table('reports')->get();
+        // return view()-> with ('user.list', ['reports'=>$reports]);
+        return view('user.list', compact('reports'));
+
+    }
+
+
 }

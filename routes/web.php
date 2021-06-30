@@ -20,5 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('form', [App\Http\Controllers\insertFormController::class, 'index'])->name('moh');
+Route::post('form', [App\Http\Controllers\insertFormController::class, 'insert'])->name('moh');
 
+Route::get('/view', [App\Http\Controllers\HomeController::class, 'view1'])->name('viewreport');
+Route::get('/export', [App\Http\Controllers\HomeController::class, 'export'])->name('export');
+Route::get('/delete', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
