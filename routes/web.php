@@ -20,13 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('form', [App\Http\Controllers\insertFormController::class, 'insert'])->name('moh');
+Route::post('form', [App\Http\Controllers\insertFormController::class, 'insert'])->name('insert_form');
 
-Route::get('/view', [App\Http\Controllers\HomeController::class, 'view1'])->name('viewreport');
-Route::get('/export', [App\Http\Controllers\HomeController::class, 'export'])->name('export');
+Route::get('/view', [App\Http\Controllers\HomeController::class, 'view1'])->name('viewreport'); 
 Route::get('/delete/{id}', [App\Http\Controllers\HomeController::class, 'delete'])->name('delete');
 
 
 // pdf
 
-Route::get('/pdf', [App\Http\Controllers\PDFController::class, 'index'])->name('pdf'); 
+Route::get('/export/{id}', [App\Http\Controllers\PDFController::class, 'exportPdf'])->name('export_pdf'); 

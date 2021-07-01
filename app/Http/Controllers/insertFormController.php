@@ -18,12 +18,16 @@ class insertFormController extends Controller
 
     public function insert(Request $request) {
         $name = $request->input('name');
-        $email = $request->input('email');
-        $contact = $request->input('contact');
-        $message = $request->input('message');
-        $data = ['name'=>$name, 'email'=>$email, 'contact'=>$contact, 'message'=>$message];
+        // $email = $request->input('email');
+        // $contact = $request->input('contact');
+        // $message = $request->input('message');
+        // $data = ['name'=>$name, 'email'=>$email, 'contact'=>$contact, 'message'=>$message];
+
+        $data = $request->all();
+        print_r($data);
+
         // DB::insert('insert into reports (name,email) values',($name, $email));
-        DB::table('reports')->insert($data); // Query Builder approach
+        // DB::table('reports')->insert($data); // Query Builder approach
         // getList();
         return view('/home');
      }

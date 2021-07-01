@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
   
 use Illuminate\Http\Request;
 use PDF;
+use DB;
   
 class PDFController extends Controller
 {
@@ -12,15 +13,11 @@ class PDFController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function exportPdf($id)
     {
-        $data = [
-            'title' => 'Welcome to ItSolutionStuff.com',
-            'date' => date('m/d/Y')
-        ];
-          
-        $pdf = PDF::loadView('user.pdf', $data);
-    
-        return $pdf->download('userpdf.pdf');
+        $data = DB::table('reports')->where('id',$id)->first(); 
+        $pdf = PDF::loadView('user.pdf', ['$data'=>$data]);
+        return $pdf->stream('userpdf.pdf');
+        // return $pdf->download('userpdf.pdf');
     }
 }

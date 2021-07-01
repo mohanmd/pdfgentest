@@ -23,7 +23,7 @@
                     <td>{{ $report->contact }}</td>
                     <td>{{ $report->message }}</td>
                     <td>
-                        <a href="{{ route('pdf') }}" class="btn btn-warning">Export</a>
+                        <a href="{{ route('export_pdf',['id'=>$report->id]) }}" class="btn btn-warning">Export</a>
                         <a href="{{ route('delete',['id'=>$report->id]) }}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
